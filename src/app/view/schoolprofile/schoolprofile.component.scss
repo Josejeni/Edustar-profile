@@ -1,0 +1,33 @@
+.col-lg-12{
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+* {
+    font-family: initial;
+}
+button{
+    font-family: initial;
+}
+input{
+    font-family: initial;
+}
+.card-header{
+    background-color:rgba(12, 12, 164, 0.762);
+    color: white;
+ 
+    border-bottom: 1px solid black;
+    font-size: 10pt;
+}
+span{
+    background-color: rgb(12, 114, 12);
+}
+i{
+    color:white;
+}
+.card{
+    border: 1px solid black;
+}
+.card-footer{
+    border-top: 1px solid black;
+}
+   

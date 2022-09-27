@@ -1,0 +1,98 @@
+<form [formGroup]="Userprofile">
+    <div class="card" style="display: flex;">
+        <div class="card-header">
+            Userprofile page
+        </div>
+        <div class="body">
+            <div class="row mt-3">
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
+                    <label>Name</label>
+                <input class="form-control" type="text" required formControlName="name">
+                
+                <div class="col-md-6"
+                    *ngIf="Userprofile.controls['name'].invalid && Userprofile.controls['name'].touched"
+                    style="color:red;">* name is required</div>
+                </div>
+                    <div class="col-md-2"></div>
+
+                <div class="col-md-4">
+                    <label>Age</label>
+                    <input class="form-control" type="text" required formControlName="age">
+                    
+                    <div class="col-md-6" *ngIf="Userprofile.controls['age'].invalid && Userprofile.controls['age'].touched"
+                style="color:red;">* age is required</div>
+                </div>
+
+                <div class="col-md-1"></div>
+
+            </div>
+
+           
+            <div class="row mt-3">
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
+                    <div>
+                    <label>Gender</label>
+                    </div><br>
+                    <input type="radio" value="Male" required formControlName="gender">Male
+                    <input type="radio"  value="Female" formControlName="gender">Female
+                
+
+                <div class="col-md-6"
+                    *ngIf="Userprofile.controls['gender'].invalid && Userprofile.controls['gender'].touched"
+                    style="color:red;">* gender is required</div>
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                       <label>DOB</label>
+                        <input class="form-control" type="date" required formControlName="dob">
+                </div>
+
+                 
+                <div class="col-md-6" *ngIf="Userprofile.controls['dob'].invalid && Userprofile.controls['dob'].touched"
+                    style="color:red;">* dob is required</div>
+                    <div class="col-md-1"></div>
+
+            </div>
+
+       
+            <div class="row mt-3">
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
+                    <label>Mail I'd</label>
+                    <input class="form-control" type="email" required formControlName="mailid">
+                
+                <div class="col-md-6"
+                    *ngIf="Userprofile.controls['mailid'].invalid && Userprofile.controls['mailid'].touched"
+                    style="color:red;">* maili'd is required</div>
+                </div>
+
+                    <div class="col-md-2"></div>
+
+                    <div class="col-md-4">
+                        <label>Username</label>
+                        <input class="form-control" type="text" required formControlName="user_name"
+                            readonly>
+                    </div>
+                    <div class="col-md-1"></div>
+
+            </div>
+
+            <div class="row mt-3"></div>
+        </div>
+
+            <div class="card-footer">
+
+                <button class="btn btn-success" [disabled]="!Userprofile.valid" (click)="update()">Update</button>
+
+                <!-- <a >Back</a> -->
+                <button (click)="Back()" class="btn btn-info ">Back</button>
+
+                <button class="btn btn-warning pull-right" (click)="deleterec()">Delete</button>
+
+            </div>
+
+        
+    </div>
+</form>

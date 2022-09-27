@@ -1,0 +1,31 @@
+<mat-toolbar style="background-color:rgba(238, 136, 28, 0.903);">
+    <mat-toolbar-row>
+        <button mat-icon-button (click)="drawer.toggle()"><i class="bi bi-menu-button-wide" style="color: white;font-size:30px"></i>
+            <!-- <mat-icon (click)="drawer.toggle()">menu</mat-icon> -->
+        </button>
+        <h2> &nbsp;Edu-Star</h2>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container">
+
+    <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="true">
+       
+        <mat-nav-list class="menu-items" style="margin-top:10px ;">
+
+        <a mat-list-item (click)="submit()" style="color: white;"><i class="bi bi-person" style="margin-right: 10pt;color:rgb(45, 245, 68)" ></i>User profile</a>
+        <a mat-list-item (click)="submitgen()" style="color: white;"><i class="fa fa-school" style="margin-right: 10pt;color:rgb(82, 185, 236)"></i>School Profile</a>
+        <a mat-list-item (click)="logout()" style="color: white;"><i  class="bi-box-arrow-left" style="margin-right: 10pt;font-size:25px;color:rgb(239, 22, 22)"></i>Logout</a> 
+
+        </mat-nav-list>
+
+    </mat-drawer>
+
+    <div class="col-lg-15">
+        <div class="container-fluid">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+
+</mat-drawer-container>
