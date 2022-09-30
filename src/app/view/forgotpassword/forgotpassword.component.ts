@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MainserviceService } from 'src/app/service/mainservice.service';
 import { SubserviceService } from 'src/app/service/subservice.service';
@@ -12,12 +12,15 @@ import Swal from 'sweetalert2';
 })
 export class ForgotpasswordComponent implements OnInit {
 
-  ForgorpasswordForm !:FormGroup
+  ForgotpasswordForm !:FormGroup
   constructor(private fb : FormBuilder, private subservice: SubserviceService,private mainservice:MainserviceService,private router:Router) { 
-    this.ForgorpasswordForm = this.fb.group({
+    this.ForgotpasswordForm = this.fb.group({
       email:[''],
       pin:[''],
-      password:['']
+      password:['',[
+        Validators.required,
+        Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
+      ]]
     })
 
   }
@@ -28,7 +31,7 @@ export class ForgotpasswordComponent implements OnInit {
   datapwd:any
 
 submit(){
-  this.subservice.pwdreset(this.ForgorpasswordForm.value).subscribe(arg=>{
+  this.subservice.pwdreset(this.ForgotpasswordForm.value).subscribe(arg=>{
     this.data=arg
     if (this.data.detail){
       Swal.fire({
@@ -50,9 +53,9 @@ submit(){
 }
 
 pincheck(){
-  this.subservice.pin(this.ForgorpasswordForm.value).subscribe((arg:any)=>{
+  this.subservice.pin(this.ForgotpasswordForm.value).subscribe((arg:any)=>{
     this.data=arg
-    this.datapwd=this.ForgorpasswordForm.value
+    this.datapwd=this.ForgotpasswordForm.value
     console.log(this.datapwd['password'])
     console.log(this.data.password)
     if (!this.data.detail){

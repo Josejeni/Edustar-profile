@@ -10,8 +10,8 @@ export class MainserviceService {
 
   
   constructor(private http:HttpClient) { }
-  base="https://edustar-backend.herokuapp.com"
-  // base="http://127.0.0.1:8000"
+  // base="https://edustar-backend.herokuapp.com"
+  base="http://127.0.0.1:8000"
 
   // token = new HttpHeaders({
   //   // "Authorization":arg.token_type+" "+arg.access_token
@@ -67,5 +67,9 @@ export class MainserviceService {
   }
   pinupdate(data:any,url:any){
     return this.http.put(this.base+url,data)
+  }
+  sclproupdate(data:any,url:any){
+    return this.http.put(this.base+url,data,{headers:new HttpHeaders({ "Authorization":localStorage.getItem('token_type')+" "+localStorage.getItem('token')})})
+
   }
 }

@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm=this.fb.group({
-      user_name:['',Validators.required],
+      username:['',Validators.required],
       password:['',Validators.required]
     })
     
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.valid){
     this.error=0
     this.formvar=new FormData();
-    this.formvar.append("username",this.loginForm.get('user_name').value);
+    this.formvar.append("username",this.loginForm.get('username').value);
     this.formvar.append("password",this.loginForm.get('password').value);
     console.log("sumbitted",this.formvar );
 
@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
   }
 
 }
-  fieldTextType:any;
+fieldTextType:any;
 toggleFieldTextType() {
   
   this.fieldTextType = !this.fieldTextType;

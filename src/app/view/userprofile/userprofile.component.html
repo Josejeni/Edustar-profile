@@ -1,5 +1,6 @@
 <form [formGroup]="Userprofile">
-    <div class="card" style="display: flex;">
+    <div class="row mt-4"></div>
+    <div class="card">
         <div class="card-header">
             Userprofile page
         </div>
@@ -72,7 +73,7 @@
 
                     <div class="col-md-4">
                         <label>Username</label>
-                        <input class="form-control" type="text" required formControlName="user_name"
+                        <input class="form-control" type="text" required formControlName="username"
                             readonly>
                     </div>
                     <div class="col-md-1"></div>
@@ -87,7 +88,7 @@
                 <button class="btn btn-success" [disabled]="!Userprofile.valid" (click)="update()">Update</button>
 
                 <!-- <a >Back</a> -->
-                <button (click)="Back()" class="btn btn-info ">Back</button>
+                <button (click)="Back()" class="btn btn-info" style="margin-left: 20px;">Back</button>
 
                 <button class="btn btn-warning pull-right" (click)="deleterec()">Delete</button>
 

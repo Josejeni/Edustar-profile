@@ -18,15 +18,16 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     // this.id=this.route.snapshot.params['id'];
   }
-  submit(){
+  openUserprofile(){
       this.router.navigate(['home/userprofile'])
   }
-  submitgen(){
+  openSchoolprofile(){
     this.router.navigate(['home/schoolprofile'])
     console.log(this.id);
     
   }
   logout(){
+    
     this.router.navigate(['/login'])
   }
 }

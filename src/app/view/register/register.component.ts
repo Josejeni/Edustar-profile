@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
       gender:['',Validators.required],
       mailid:['',Validators.email],
       dob:['',Validators.required],
-      user_name:['',Validators.required],
+      username:['',Validators.required],
       password: [
         '',
         [
@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
     //  console.log("Emty");
     // else{
       
-      this.http.post(" https://edustar-backend.herokuapp.com/pwd_encrypt",this.registerForm.value).subscribe(arg=>{
+      this.http.post("http://127.0.0.1:8000/pwd_encrypt",this.registerForm.value).subscribe(arg=>{
       this.data=arg
       console.log(this.data)
       if(!this.data.detail){

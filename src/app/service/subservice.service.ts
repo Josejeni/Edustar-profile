@@ -61,4 +61,8 @@ export class SubserviceService {
     const url="/update_pwd"
     return this.mainservice.pinupdate(data,url)
   }
+  sclproupdate(data:any){
+    const url="/schoolprofile_update"
+    return this.mainservice.sclproupdate(data,url)
+  }
 }
